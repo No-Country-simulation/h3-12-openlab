@@ -3,9 +3,9 @@ package com.openlab.h3_12.infrastructure.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.sql.Timestamp;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -28,7 +28,9 @@ public class OrderEntity {
     private String orderType;
     private BigDecimal tokenAmount;
     private BigDecimal pricePerToken;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+    @Column(name = "update_at")
+    private LocalDateTime updatedAt;
 
 }

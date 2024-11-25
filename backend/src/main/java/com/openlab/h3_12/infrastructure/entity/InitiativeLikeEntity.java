@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.catalina.User;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -17,7 +17,7 @@ public class InitiativeLikeEntity {
     private Long id;
 
     @Column(name = "liked_at")
-    private Timestamp liked_at;
+    private LocalDateTime liked_at;
     //Relationship to InitiativeEntity N:1
     @ManyToOne
     @JoinColumn(name = "initiative_id", nullable = false)

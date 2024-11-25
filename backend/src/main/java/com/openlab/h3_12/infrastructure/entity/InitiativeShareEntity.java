@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -16,7 +16,7 @@ public class InitiativeShareEntity {
     private Long id;
 
     @Column(name = "shared_at")
-    private Timestamp shared_at;
+    private LocalDateTime shared_at;
     // Relación a InitiativeEntity N:1
     @ManyToOne
     @JoinColumn(name = "initiative_id", nullable = false)

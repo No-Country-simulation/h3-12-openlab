@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.catalina.User;
-
-import java.security.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -21,9 +20,9 @@ public class DaoEntity {
     @Column(name = "token_symbol")
     private String tokenSymbol;
     @Column(name = "created_At")
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
     @Column(name = "updated_At")
-    private Timestamp updatedAt;
+    private LocalDateTime updatedAt;
     //Relationship to UserEntity N:1
     @ManyToOne
     @JoinColumn(name = "created_by")
