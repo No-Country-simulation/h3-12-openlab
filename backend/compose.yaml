@@ -1,9 +1,22 @@
+version: '3'
 services:
-  postgres:
-    image: 'postgres:latest'
-    environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+  back_api:
+    build: .
+    image: openlab_back_api
     ports:
-      - '5432'
+      - ${PORT}
+    environment:
+      DATASOURCE_PROD: ${DATASOURCE_PROD}
+      USER_PROD: ${USER_PROD}
+      PASSWORD_PROD: ${PASSWORD_PROD}
+      DDL_AUTO_PROD: ${DDL_AUTO_PROD}
+      PORT: ${PORT}
+      ISSUER: ${ISSUER}
+      AUDIENCE: ${AUDIENCE}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+      CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME}
+      CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
+    restart: unless-stopped
+
+
