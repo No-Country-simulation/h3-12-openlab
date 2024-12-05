@@ -1,4 +1,4 @@
-package com.openlab.h3_12.domain.repository;
+package com.openlab.h3_12.domain.port.repository;
 
 import com.openlab.h3_12.infrastructure.entity.DaoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

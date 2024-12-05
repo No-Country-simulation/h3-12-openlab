@@ -1,7 +1,8 @@
-package com.openlab.h3_12.domain.service;
+package com.openlab.h3_12.domain.port.service;
 
-import com.openlab.h3_12.domain.repository.InitiativeRepository;
+import com.openlab.h3_12.domain.port.repository.InitiativeRepository;
 import com.openlab.h3_12.infrastructure.entity.InitiativeEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -10,6 +11,7 @@ import java.util.Optional;
 
 @Service
 public class InitiativeService {
+    @Autowired
     private InitiativeRepository initiativeRepository;
 
     //todaslas iniciativas

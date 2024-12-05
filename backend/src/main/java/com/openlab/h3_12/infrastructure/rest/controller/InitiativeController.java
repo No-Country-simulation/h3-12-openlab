@@ -1,7 +1,8 @@
 package com.openlab.h3_12.infrastructure.rest.controller;
 
-import com.openlab.h3_12.domain.service.InitiativeService;
+import com.openlab.h3_12.domain.port.service.InitiativeService;
 import com.openlab.h3_12.infrastructure.entity.InitiativeEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,8 +10,9 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/initiatives")
+@RequestMapping("/initiatives")
 public class InitiativeController {
+    @Autowired
     private InitiativeService initiativeService;
 
     /*
