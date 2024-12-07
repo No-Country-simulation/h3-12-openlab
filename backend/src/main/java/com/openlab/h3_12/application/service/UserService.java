@@ -9,7 +9,7 @@ import java.util.Optional;
 @Service
 public class UserService implements UserServicePort {
     @Override
-    public Optional<UserDTO> getUserById(Long userId) {
+    public Optional<UserDTO> getUserById(String userId) {
         return Optional.empty();
     }
 

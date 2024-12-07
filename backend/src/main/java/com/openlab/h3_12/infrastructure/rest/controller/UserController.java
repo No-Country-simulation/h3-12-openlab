@@ -15,17 +15,14 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
 @Tag(name = "User", description = "Endpoints for user management")
 public class UserController {
     private final UserService userService;
-
-    @GetMapping()
-    public String hello(@RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
-        return "Hello";
-    }
 
     @Operation(summary = "Register user")
     @ApiResponses(value = {
@@ -49,7 +46,8 @@ public class UserController {
         if (userIdFromToken.equals(id)) {
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
         }
-        return null;
+        Optional<UserDTO> user = userService.getUserById(id);
+        return user.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 }
