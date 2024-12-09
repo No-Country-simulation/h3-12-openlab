@@ -36,8 +36,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        System.out.println("Audience: " + audience);
-        System.out.println("Issuer: " + issuer);
+
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(withDefaults())
