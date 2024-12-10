@@ -14,12 +14,12 @@ public class UserService implements UserServicePort {
     }
 
     @Override
-    public UserDTO updateUser(Long userId, UserDTO userDTO) {
+    public UserDTO updateUser(String userId, UserDTO userDTO) {
         return null;
     }
 
     @Override
-    public void deleteUser(Long userId) {
+    public void deleteUser(String userId) {
 
     }
 }

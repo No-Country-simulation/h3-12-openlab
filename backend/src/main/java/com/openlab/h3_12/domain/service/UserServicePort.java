@@ -7,7 +7,7 @@ import java.util.Optional;
 public interface UserServicePort {
     Optional<UserDTO> getUserById(String userId);
 
-    UserDTO updateUser(Long userId, UserDTO userDTO);
+    UserDTO updateUser(String userId, UserDTO userDTO);
 
-    void deleteUser(Long userId);
+    void deleteUser(String userId);
 }
