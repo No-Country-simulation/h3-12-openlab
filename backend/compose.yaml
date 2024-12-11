@@ -1,0 +1,22 @@
+version: '3'
+services:
+  back_api:
+    build: .
+    image: openlab_back_api
+    ports:
+      - ${PORT}
+    environment:
+      DATASOURCE_PROD: ${DATASOURCE_PROD}
+      USER_PROD: ${USER_PROD}
+      PASSWORD_PROD: ${PASSWORD_PROD}
+      DDL_AUTO_PROD: ${DDL_AUTO_PROD}
+      PORT: ${PORT}
+      ISSUER: ${ISSUER}
+      AUDIENCE: ${AUDIENCE}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS}
+      CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME}
+      CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
+      CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
+    restart: unless-stopped
+
+
