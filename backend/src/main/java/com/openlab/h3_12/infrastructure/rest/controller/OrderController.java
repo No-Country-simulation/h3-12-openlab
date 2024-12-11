@@ -1,6 +1,7 @@
 package com.openlab.h3_12.infrastructure.rest.controller;
 
 import com.openlab.h3_12.domain.dto.OrderDTO;
+import com.openlab.h3_12.domain.service.OrderServicePort;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -11,18 +12,17 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/orders")
 @RequiredArgsConstructor
 @Tag(name = "Order" , description = "Endpoints for managing buy and sell orders")
 public class OrderController {
+    private final OrderServicePort orderService;
 
     @Operation(summary = "Get orders buy/sell by id")
     @GetMapping("{id}")
-    public ResponseEntity<List<OrderDTO>> getOrderById(@Parameter(description = "Order id", required = true) @PathVariable String id) {
-        return null;
+    public ResponseEntity<OrderDTO> getOrderById(@Parameter(description = "Order id", required = true) @PathVariable Long id) {
+        return orderService.getOrderById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @Operation(summary = "Allows you to create a new order (buy or sell) associated with a DAO.")
@@ -32,7 +32,7 @@ public class OrderController {
     })
     @PostMapping()
     public ResponseEntity<OrderDTO> createOrder(@Parameter(description = "Order", required = true) @Valid @RequestBody OrderDTO orderDTO) {
-        return null;
+        return ResponseEntity.ok(orderService.createOrder(orderDTO));
     }
 
     @Operation(summary = "Execute a token purchase using a posted order.")

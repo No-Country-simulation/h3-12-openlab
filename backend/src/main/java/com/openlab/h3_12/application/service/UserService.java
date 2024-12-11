@@ -14,6 +14,11 @@ public class UserService implements UserServicePort {
     }
 
     @Override
+    public UserDTO registerUser(UserDTO userDTO) {
+        return null;
+    }
+
+    @Override
     public UserDTO updateUser(String userId, UserDTO userDTO) {
         return null;
     }

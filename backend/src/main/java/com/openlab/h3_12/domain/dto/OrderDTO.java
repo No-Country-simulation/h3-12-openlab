@@ -4,13 +4,20 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Builder
 public record OrderDTO(
+        @NotNull(message = "The order ID cannot be null.")
+        Long id,
+
         @NotNull(message = "The initiative ID cannot be null.")
-        Long initiativeId,
+        int initiativeId,
 
         @NotNull(message = "The user ID cannot be null.")
         Long userId,
@@ -33,4 +40,5 @@ public record OrderDTO(
         @NotNull(message = "Update date cannot be null.")
         LocalDateTime updatedAt
 )
-{ }
+{
+}

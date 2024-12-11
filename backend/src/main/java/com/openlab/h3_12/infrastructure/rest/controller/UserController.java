@@ -1,14 +1,14 @@
 package com.openlab.h3_12.infrastructure.rest.controller;
 
-import com.openlab.h3_12.application.service.UserService;
 import com.openlab.h3_12.domain.dto.UserDTO;
+import com.openlab.h3_12.domain.service.UserServicePort;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -22,7 +22,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Tag(name = "User", description = "Endpoints for user management")
 public class UserController {
-    private final UserService userService;
+    private final UserServicePort userService;
 
     @Operation(summary = "Register user")
     @ApiResponses(value = {
@@ -30,8 +30,9 @@ public class UserController {
             @ApiResponse(responseCode = "400", description = "Bad request"),
     })
     @PostMapping
-    public ResponseEntity<UserDTO> registerUser(@RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
-        return null;
+    public ResponseEntity<UserDTO> registerUser(@Parameter(description = "User", required = true) @Valid @RequestBody UserDTO userDTO, @AuthenticationPrincipal Jwt jwt) {
+        String userIdFromToken = jwt.getClaim("sub");
+        return ResponseEntity.ok(userService.registerUser(userDTO));
     }
 
     @Operation(summary = "Get user by id")

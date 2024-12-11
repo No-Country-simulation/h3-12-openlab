@@ -37,7 +37,6 @@ public class GlobalExceptionHandler {
             BadRequestException.class,
             org.springframework.dao.DuplicateKeyException.class,
             org.springframework.web.HttpRequestMethodNotSupportedException.class,
-            org.springframework.web.bind.MethodArgumentNotValidException.class,
             org.springframework.web.bind.MissingRequestHeaderException.class,
             org.springframework.web.bind.MissingServletRequestParameterException.class,
             org.springframework.web.method.annotation.MethodArgumentTypeMismatchException.class,
