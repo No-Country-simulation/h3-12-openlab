@@ -17,7 +17,7 @@ public record OrderDTO(
         Long id,
 
         @NotNull(message = "The initiative ID cannot be null.")
-        int initiativeId,
+        Long initiativeId,
 
         @NotNull(message = "The user ID cannot be null.")
         Long userId,
