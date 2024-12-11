@@ -21,6 +21,8 @@ public class InitiativeEntity {
     private String idea;
     private String solution;
     private String opportunity;
+    private String image_url;
+    private String image_public_id;
     @Column(name = "success_Indicator")
     private BigDecimal successIndicator;
     @Column(name = "created_At")
