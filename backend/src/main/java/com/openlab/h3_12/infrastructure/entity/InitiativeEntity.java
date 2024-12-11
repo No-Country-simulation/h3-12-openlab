@@ -15,7 +15,7 @@ import java.util.List;
 public class InitiativeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String name;
     private String problem;
     private String idea;

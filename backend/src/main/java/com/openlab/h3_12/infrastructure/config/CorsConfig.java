@@ -12,10 +12,10 @@ import java.util.Arrays;
 @Configuration
 public class CorsConfig {
     @Value("${web.cors.allowed-origins}")
-    private String corsAllowedOrigins;
+    private static String corsAllowedOrigins;
 
     @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
+    public static CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList(corsAllowedOrigins));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS", "HEAD"));

@@ -1,7 +1,8 @@
-package com.openlab.h3_12.domain.service;
+package com.openlab.h3_12.domain.port.service;
 
-import com.openlab.h3_12.domain.repository.DaoRepository;
+import com.openlab.h3_12.domain.port.repository.DaoRepository;
 import com.openlab.h3_12.infrastructure.entity.DaoEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class DaoService {
-
+    @Autowired
     private DaoRepository daoRepository;
 
     public List<DaoEntity> getAllDaos() {
