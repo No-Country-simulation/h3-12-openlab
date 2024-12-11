@@ -1,5 +1,4 @@
-# Usar una imagen base de Maven con JDK 17 para construir el jar
-FROM maven:3.8.3-openjdk-17 AS builder
+FROM maven:3.9.8-eclipse-temurin-21  AS builder
 
 # Establecer el directorio de trabajo en /app
 WORKDIR /app
@@ -13,8 +12,8 @@ FROM openjdk:21-slim AS runtime
 
 WORKDIR /app
 
-COPY --from=builder /app/target/miniproject-0.0.1-SNAPSHOT.jar /app/miniproject.jar
+COPY --from=builder /app/target/h3-12-0.0.1-SNAPSHOT.jar /app/h3-12.jar
 
 EXPOSE 8443
 
-ENTRYPOINT ["java", "-jar", "/app/miniproject.jar"]
+ENTRYPOINT ["java", "-jar", "/app/h3-12.jar"]
