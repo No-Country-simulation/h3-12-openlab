@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: #213547;
-  background-color: #ffffff;;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,11 +22,11 @@ body {
 }
 
 a:hover {
-  color: ;
+  color: #3a23ff;
 }
 button {
   color: white;
-  background-color: #3A23FF;
+  background-color: #3a23ff;
   border: none;
   padding: 1rem;
   border-radius: 10px;
@@ -35,7 +35,7 @@ button {
 }
 
 button:hover {
-  background-color: #2E1CCE; /* Color de hover más oscuro */
+  background-color: #2e1cce; /* Color de hover más oscuro */
 }
 
 @media (prefers-color-scheme: light) {
@@ -44,9 +44,9 @@ button:hover {
     background-color: #242424;
   }
   a:hover {
-    color: ;
+    color: #747bff;
   }
   button {
-    background-color: #3A23FF;
+    background-color: #3a23ff;
   }
 }

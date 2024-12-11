@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from 'wouter';
 
@@ -10,9 +10,14 @@ import lampOnIcon from './../../../assets/lamp-on-icon.svg';
 import logoutIcon from './../../../assets/logout-icon.svg';
 
 import './Sidebar.css';
+import { CreateInitiative } from '../../sections/CreateInitiative/CreateInitiative';
 
 export const Sidebar = () => {
   const { logout } = useAuth0();
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
   return (
     <div className="sidebar">
@@ -25,9 +30,9 @@ export const Sidebar = () => {
             <img src={homeIcon} alt="Home Icon" className="logo-img" />
             <Link href="/dashboard/home">Home</Link>
           </li>
-          <li>
+          <li onClick={openModal}>
             <img src={messageIcon} alt="Create New Icon" className="logo-img" />
-            <Link href="/dashboard/create-new">Create New</Link>
+            <a >Create New</a>
           </li>
           <li>
             <img src={lampChargeIcon} alt="New Initiatives Icon" className="logo-img" />
@@ -45,6 +50,7 @@ export const Sidebar = () => {
           </li>
         </ul>
       </nav>
+      <CreateInitiative isOpen={isModalOpen} onClose={closeModal} />
     </div>
   );
 };
